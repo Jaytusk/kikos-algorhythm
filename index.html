@@ -9,10 +9,13 @@
 </head>
 <body>
   <div id="entry-screen">
-    <video id="intro-video" src="assets/intro.mp4" autoplay muted playsinline></video>
+    <video id="intro-video" autoplay muted playsinline>
+      <source src="assets/intro.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
 
     <div id="overlay">
-      <div id="terminal-text" class="hidden">Terminal: what should I call you?</div>
+      <div id="terminal-text" class="hidden"></div>
 
       <div id="input-area" class="hidden">
         <input type="text" id="nickname" placeholder="Enter your nickname" />
@@ -30,3 +33,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
