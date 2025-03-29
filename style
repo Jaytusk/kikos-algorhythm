@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  background-color: black;
+  color: white;
+  font-family: 'IBM Plex Mono', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+#intro-video {
+  width: 600px;
+  max-width: 90vw;
+  height: auto;
+  border: 2px solid white;
+  margin-bottom: 20px;
+}
+
+#terminal-text,
+#input-area {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+#nickname {
+  padding: 10px;
+  font-size: 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+
+button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+#second-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#second-text {
+  font-size: 1.5rem;
+  text-align: center;
+  max-width: 80%;
+}
