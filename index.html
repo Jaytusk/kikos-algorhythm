@@ -3,96 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Slime Dish</title>
+  <title>Party Promise</title>
   <style>
-    html, body {
+    body {
       margin: 0;
-      background: black;
-      overflow: hidden;
+      background-color: black;
+      color: white;
+      font-family: monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-    canvas {
-      display: block;
-      margin: 0 auto;
+    #container {
+      text-align: center;
+    }
+    #nicknameInput {
+      background: black;
+      border: 1px solid white;
+      color: white;
+      font-family: monospace;
+      padding: 5px;
+    }
+    #promise {
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <canvas id="canvas"></canvas>
+  <div id="container">
+    <label for="nicknameInput">Enter your nickname:</label>
+    <input type="text" id="nicknameInput" maxlength="20" />
+    <button onclick="startAnimation()">Submit</button>
+    <div id="promise"></div>
+    <pre id="animation"></pre>
+  </div>
 
-  <script type="module">
-    import * as vec2 from './vec2.js';
-    import { map } from './num.js';
-    import * as slime from './slime_dish.js';
-
-    // Canvas setup
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    const pixelRatio = window.devicePixelRatio || 1;
-    const width = 400;
-    const height = 400;
-    canvas.width = width * pixelRatio;
-    canvas.height = height * pixelRatio;
-    canvas.style.width = width + 'px';
-    canvas.style.height = height + 'px';
-    ctx.scale(pixelRatio, pixelRatio);
-
-    // Data & state
-    const buffer = []; // not used but required
-    const data = {};
-    const cursor = { x: 0, y: 0, pressed: false };
-    const metrics = {
-      rows: height,
-      cols: width,
-      aspect: width / height
-    };
-
-    const context = {
-      frame: 0,
-      metrics
-    };
-
-    // Boot simulation
-    slime.boot(context, buffer, data);
-
-    // Track mouse
-    canvas.addEventListener('mousemove', (e) => {
-      const rect = canvas.getBoundingClientRect();
-      cursor.x = Math.floor((e.clientX - rect.left) / (width / metrics.cols));
-      cursor.y = Math.floor((e.clientY - rect.top) / (height / metrics.rows));
-    });
-
-    canvas.addEventListener('mousedown', () => cursor.pressed = true);
-    canvas.addEventListener('mouseup', () => cursor.pressed = false);
-
-    // Render loop
-    function loop() {
-      context.frame++;
-      slime.pre(context, cursor, buffer, data);
-
-      const imageData = ctx.createImageData(width, height);
-      const pixels = imageData.data;
-
-      for (let y = 0; y < height; y++) {
-        for (let x = 0; x < width; x++) {
-          const coord = { x, y };
-          const char = slime.main(coord, context, cursor, buffer, data);
-          const i = (y * width + x) * 4;
-
-          // Convert slime "char" into pixel color (e.g. brightness from ASCII)
-          const brightness = char.charCodeAt(0) * 2; // very rough mapping
-          pixels[i] = 255;     // red
-          pixels[i + 1] = 108; // green/orange
-          pixels[i + 2] = 15;  // blue
-          pixels[i + 3] = brightness; // alpha
-        }
-      }
-
-      ctx.putImageData(imageData, 0, 0);
-      requestAnimationFrame(loop);
-    }
-
-    loop();
-  </script>
+  <script type="module" src="./animation.js"></script>
 </body>
 </html>
 
