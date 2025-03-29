@@ -5,62 +5,113 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ASCII Party</title>
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       background-color: black;
-      color: white;
+      color: orange;
       font-family: monospace;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       height: 100vh;
-      flex-direction: column;
+      overflow: hidden;
     }
-    input, button {
-      background: black;
+    pre {
+      margin: 0;
+      padding: 20px;
+      white-space: pre;
+      font-size: 13px;
+      line-height: 13px;
+    }
+    #namePrompt {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      display: none;
       color: white;
+    }
+    input {
+      background: black;
       border: 1px solid white;
+      color: white;
       font-family: monospace;
       font-size: 16px;
-      padding: 6px;
+      padding: 5px 10px;
+      margin-top: 10px;
     }
-    #ascii { display: none; width: 100%; height: 100%; }
-    #entry { text-align: center; }
   </style>
 </head>
 <body>
-  <div id="entry">
-    <p>Enter your nickname:</p>
-    <input type="text" id="nickname" />
-    <button onclick="start()">Enter</button>
-    <p id="msg"></p>
-  </div>
   <pre id="ascii"></pre>
+
+  <div id="namePrompt">
+    <p>What is your name?</p>
+    <input type="text" id="nickname" />
+  </div>
 
   <script type="module">
     import { run } from './runner.js';
     import * as slime from './slime_dish.js';
 
-    window.start = () => {
-      const name = document.getElementById('nickname').value.trim();
-      if (!name) return;
-      document.getElementById('msg').textContent = `${name} promises to behave at the party`;
+    const ascii = document.getElementById('ascii');
+    const prompt = document.getElementById('namePrompt');
 
-      document.getElementById('entry').style.display = 'none';
-      const ascii = document.getElementById('ascii');
-      ascii.style.display = 'block';
+    // Disable interactivity by passing a dummy cursor
+    const dummyCursor = { x: 0, y: 0, pressed: false };
 
-      run(slime, {
-        element: ascii,
-        renderer: 'text',
-        backgroundColor: 'black',
-        color: 'orange',
-        fontSize: '13px',
-        fontWeight: '400',
-        lineHeight: 13
-      });
-    };
+    // Custom non-interactive runner
+    function runStaticSketch(sketch, settings = {}) {
+      const fontSize = parseInt(settings.fontSize || 13);
+      const cols = Math.floor(window.innerWidth / fontSize);
+      const rows = Math.floor(window.innerHeight / fontSize);
+      const buffer = Array(cols * rows).fill(' ');
+
+      const context = {
+        frame: 0,
+        cols,
+        rows,
+        metrics: {
+          fontSize,
+          aspect: window.innerWidth / window.innerHeight
+        }
+      };
+
+      const data = {};
+
+      if (typeof sketch.boot === 'function') sketch.boot(context, buffer, data);
+
+      function draw() {
+        if (typeof sketch.pre === 'function') sketch.pre(context, dummyCursor, buffer, data);
+
+        let output = '';
+        for (let y = 0; y < rows; y++) {
+          for (let x = 0; x < cols; x++) {
+            const index = y * cols + x;
+            const char = sketch.main({ x, y, index }, context, dummyCursor, buffer, data);
+            output += (char && typeof char === 'string') ? char : ' ';
+          }
+          output += '\\n';
+        }
+
+        ascii.textContent = output;
+        context.frame++;
+        requestAnimationFrame(draw);
+      }
+
+      draw();
+    }
+
+    runStaticSketch(slime, {
+      element: ascii,
+      fontSize: 13,
+      backgroundColor: 'black',
+      color: 'orange'
+    });
+
+    // Show name prompt after 3 seconds
+    setTimeout(() => {
+      prompt.style.display = 'block';
+    }, 3000);
   </script>
 </body>
 </html>
