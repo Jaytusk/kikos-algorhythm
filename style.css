@@ -1,27 +1,57 @@
-body {
+* {
+  box-sizing: border-box;
+}
+
+body, html {
   margin: 0;
-  background-color: black;
+  padding: 0;
+  background: black;
   color: white;
+  height: 100%;
   font-family: 'IBM Plex Mono', monospace;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+
+#entry-screen {
+  position: relative;
+  width: 100%;
   height: 100vh;
-  flex-direction: column;
+  overflow: hidden;
 }
 
 #intro-video {
-  width: 600px;
-  max-width: 90vw;
-  height: auto;
-  border: 2px solid white;
-  margin-bottom: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
 }
 
-#terminal-text,
-#input-area {
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+#terminal-text {
+  font-size: 1.5rem;
   text-align: center;
-  font-size: 1.2rem;
+  margin-bottom: 20px;
+  pointer-events: auto;
+}
+
+#input-area {
+  pointer-events: auto;
 }
 
 #nickname {
@@ -33,9 +63,45 @@ body {
   border: 1px solid white;
 }
 
-button {
+#continue-btn {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 10px 20px;
-  margin-left: 10px;
+  font-size: 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Second screen */
+
+#second-screen {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#second-text {
+  font-size: 1.5rem;
+  text-align: center;
+  max-width: 80%;
+  margin-bottom: 30px;
+}
+
+#enter-btn {
+  padding: 10px 20px;
   font-size: 1rem;
   font-family: 'IBM Plex Mono', monospace;
   background-color: black;
@@ -44,20 +110,3 @@ button {
   cursor: pointer;
 }
 
-.hidden {
-  display: none;
-}
-
-#second-screen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-#second-text {
-  font-size: 1.5rem;
-  text-align: center;
-  max-width: 80%;
-}
