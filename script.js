@@ -4,6 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const continueBtn = document.getElementById("continue-btn");
   const nicknameInput = document.getElementById("nickname");
 
+  // Show terminal after 3 sec
+  setTimeout(() => {
+    terminalText.classList.remove("hidden");
+    typeWriter("Terminal: what should I call you?", "terminal-text", () => {
+      inputArea.classList.remove("hidden");
+      continueBtn.classList.remove("hidden");
+    });
+  }, 3000);
 
   continueBtn.addEventListener("click", () => {
     const nickname = nicknameInput.value.trim();
