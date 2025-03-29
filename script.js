@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const continueBtn = document.getElementById("continue-btn");
   const nicknameInput = document.getElementById("nickname");
 
-  // Show terminal after 3 sec
   setTimeout(() => {
     terminalText.classList.remove("hidden");
     typeWriter("Terminal: what should I call you?", "terminal-text", () => {
@@ -31,8 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function typeWriter(text, elementId, callback) {
   const el = document.getElementById(elementId);
+  el.textContent = ""; // Clear content before writing
   let i = 0;
-  el.textContent = "";
   const interval = setInterval(() => {
     if (i < text.length) {
       el.textContent += text.charAt(i);
