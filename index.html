@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ASCII Party</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+      font-family: monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    input, button {
+      background: black;
+      color: white;
+      border: 1px solid white;
+      font-family: monospace;
+      font-size: 16px;
+      padding: 6px;
+    }
+    #ascii { display: none; width: 100%; height: 100%; }
+    #entry { text-align: center; }
+  </style>
+</head>
+<body>
+  <div id="entry">
+    <p>Enter your nickname:</p>
+    <input type="text" id="nickname" />
+    <button onclick="start()">Enter</button>
+    <p id="msg"></p>
+  </div>
+  <pre id="ascii"></pre>
+
+  <script type="module">
+    import { run } from './runner.js';
+    import * as slime from './slime_dish.js';
+
+    window.start = () => {
+      const name = document.getElementById('nickname').value.trim();
+      if (!name) return;
+      document.getElementById('msg').textContent = `${name} promises to behave at the party`;
+
+      document.getElementById('entry').style.display = 'none';
+      const ascii = document.getElementById('ascii');
+      ascii.style.display = 'block';
+
+      run(slime, {
+        element: ascii,
+        renderer: 'text',
+        backgroundColor: 'black',
+        color: 'orange',
+        fontSize: '13px',
+        fontWeight: '400',
+        lineHeight: 13
+      });
+    };
+  </script>
+</body>
+</html>
