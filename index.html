@@ -3,25 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Slime Dish Animation</title>
+  <title>Slime Dish</title>
   <link rel="stylesheet" href="simple_console.css" />
   <style>
-    body {
+    html, body {
       margin: 0;
-      background-color: #000;
-      overflow: hidden;
+      padding: 0;
+      background: black;
+      color: orange;
+      font-family: monospace;
     }
-
     canvas {
       display: block;
+      margin: auto;
     }
   </style>
 </head>
 <body>
   <canvas id="canvas"></canvas>
 
-  <script src="num.js"></script>
-  <script src="vec2.js"></script>
-  <script src="slime_dish.js"></script>
+  <script type="module">
+    import * as vec2 from './vec2.js';
+    import { map } from './num.js';
+    import * as slime from './slime_dish.js';
+
+    // Console emulator
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const fontSize = 13;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ctx.font = `${fontSize}px monospace`;
+
+    const cols = Math.floor(canvas.width / fontSize);
+    const rows = Math.floor(canvas.height / fontSize);
+
+    const buffer = Array.from({ length: rows }, () => Array(cols).fill(' '));
+    const data = {};
+    const metrics = {
+      cols,
+      rows,
+      aspect: canvas.width / canvas.height,
+    };
+
+    // Cursor setup
+    const cursor = {
+      x: 0,
+      y: 0,
+      pressed: false,
+    };
+
+    canvas.addEventListener('mousemove', e => {
+      cursor.x = Math.floor(e.clientX / fontSize);
+      cursor.y = Math.floor(e.clientY / fontSize);
+    });
+
+    canvas.addEventListener('mousedown', () => cursor.pressed = true);
+    canvas.addEventListener('mouseup', () => cursor.pressed = false);
+
+    // Boot the slime dish simulation
+    slime.boot({ metrics }, buffer, data);
+
+    let frame = 0;
+
+    function loop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      slime.pre({ frame, metrics }, cursor, buffer, data);
+
+      for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+          const char = slime.main({ x, y }, { frame, metrics }, cursor, buffer, data);
+          buffer[y][x] = char;
+          ctx.fillText(char, x * fontSize, y * fontSize);
+        }
+      }
+
+      frame++;
+      requestAnimationFrame(loop);
+    }
+
+    loop();
+  </script>
 </body>
 </html>
