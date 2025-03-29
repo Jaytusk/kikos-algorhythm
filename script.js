@@ -4,12 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const continueBtn = document.getElementById("continue-btn");
   const nicknameInput = document.getElementById("nickname");
 
-  setTimeout(() => {
-    terminalText.classList.remove("hidden");
-    typeWriter("Terminal: what should I call you?", "terminal-text", () => {
-      inputArea.classList.remove("hidden");
-    });
-  }, 3000);
 
   continueBtn.addEventListener("click", () => {
     const nickname = nicknameInput.value.trim();
