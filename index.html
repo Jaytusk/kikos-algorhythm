@@ -3,115 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ASCII Party</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background-color: black;
-      color: orange;
-      font-family: monospace;
-      height: 100vh;
-      overflow: hidden;
-    }
-    pre {
-      margin: 0;
-      padding: 20px;
-      white-space: pre;
-      font-size: 13px;
-      line-height: 13px;
-    }
-    #namePrompt {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      display: none;
-      color: white;
-    }
-    input {
-      background: black;
-      border: 1px solid white;
-      color: white;
-      font-family: monospace;
-      font-size: 16px;
-      padding: 5px 10px;
-      margin-top: 10px;
-    }
-  </style>
+  <title>Party Terminal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-  <pre id="ascii"></pre>
-
-  <div id="namePrompt">
-    <p>What is your name?</p>
-    <input type="text" id="nickname" />
+  <div id="entry-screen">
+    <video id="intro-video" src="assets/intro.mp4" autoplay muted></video>
+    <div id="terminal-text" class="hidden">Terminal: what should I call you?</div>
+    <div id="input-area" class="hidden">
+      <input type="text" id="nickname" placeholder="Enter your nickname" />
+      <button id="continue-btn">Continue</button>
+    </div>
   </div>
 
-  <script type="module">
-    import { run } from './runner.js';
-    import * as slime from './slime_dish.js';
+  <div id="second-screen" class="hidden">
+    <div id="second-text"></div>
+    <button id="enter-btn" class="hidden">Enter</button>
+  </div>
 
-    const ascii = document.getElementById('ascii');
-    const prompt = document.getElementById('namePrompt');
-
-    // Disable interactivity by passing a dummy cursor
-    const dummyCursor = { x: 0, y: 0, pressed: false };
-
-    // Custom non-interactive runner
-    function runStaticSketch(sketch, settings = {}) {
-      const fontSize = parseInt(settings.fontSize || 13);
-      const cols = Math.floor(window.innerWidth / fontSize);
-      const rows = Math.floor(window.innerHeight / fontSize);
-      const buffer = Array(cols * rows).fill(' ');
-
-      const context = {
-        frame: 0,
-        cols,
-        rows,
-        metrics: {
-          fontSize,
-          aspect: window.innerWidth / window.innerHeight
-        }
-      };
-
-      const data = {};
-
-      if (typeof sketch.boot === 'function') sketch.boot(context, buffer, data);
-
-      function draw() {
-        if (typeof sketch.pre === 'function') sketch.pre(context, dummyCursor, buffer, data);
-
-        let output = '';
-        for (let y = 0; y < rows; y++) {
-          for (let x = 0; x < cols; x++) {
-            const index = y * cols + x;
-            const char = sketch.main({ x, y, index }, context, dummyCursor, buffer, data);
-            output += (char && typeof char === 'string') ? char : ' ';
-          }
-          output += '\\n';
-        }
-
-        ascii.textContent = output;
-        context.frame++;
-        requestAnimationFrame(draw);
-      }
-
-      draw();
-    }
-
-    runStaticSketch(slime, {
-      element: ascii,
-      fontSize: 13,
-      backgroundColor: 'black',
-      color: 'orange'
-    });
-
-    // Show name prompt after 3 seconds
-    setTimeout(() => {
-      prompt.style.display = 'block';
-    }, 3000);
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
