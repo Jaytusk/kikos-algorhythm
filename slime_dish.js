@@ -12,8 +12,8 @@ With inspiration from:
 - http://www.tech-algorithm.com/articles/nearest-neighbor-image-scaling
 */
 
-import * as v2 from '/src/modules/vec2.js'
-import { map } from '/src/modules/num.js'
+import * as v2 from '/src/core/vec2.js'
+import { map } from '/src/core/num.js'
 
 // Environment
 const WIDTH = 400;
