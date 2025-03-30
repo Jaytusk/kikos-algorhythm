@@ -2,22 +2,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const confirmText = document.getElementById("confirmText");
   const enterBtn = document.getElementById("enterBtn");
 
-  const nickname = localStorage.getItem("nickname") || "guest";
+  const nickname = localStorage.getItem("nickname") || "Guest";
   const message = `${nickname} promises to behave at the party`;
 
-  typeWriter(message, confirmText, 50);
+  typeWriter(message, confirmText, 30);
 
-  // Show enter button after 3s
+  // Show ENTER button after animation
   setTimeout(() => {
     enterBtn.classList.remove("hidden");
-  }, 3000);
+  }, message.length * 30 + 500);
+
+  // ✅ Redirect on click
+  enterBtn.addEventListener("click", () => {
+    window.location.href = "https://www.ticketmelon.com/kikos/algorhythm";
+  });
 });
 
-// 🧠 Same typewriter engine
 function typeWriter(text, el, speed = 50) {
   let i = 0;
   el.textContent = "";
-
   function typing() {
     if (i < text.length) {
       el.textContent += text.charAt(i);
@@ -25,6 +28,5 @@ function typeWriter(text, el, speed = 50) {
       setTimeout(typing, speed);
     }
   }
-
   typing();
 }
