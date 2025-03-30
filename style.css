@@ -108,14 +108,21 @@ button {
 
 #confirmText {
   font-size: 1.2rem;
+  color: #e9b72d;
   text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
   padding: 0 1rem;
-  line-height: 1.6;
-  word-wrap: break-word;
+
+  width: 100%;
+  max-width: 90vw; /* ⬅️ hard constraint */
   overflow-wrap: break-word;
-  max-width: 100%;
-  margin-bottom: 1.5rem; /* reduce space before button */
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal; /* ⬅️ crucial! */
+  line-height: 1.6;
 }
+
 
 #enterBtn {
   margin-top: 1rem; /* tighter gap below promise */
