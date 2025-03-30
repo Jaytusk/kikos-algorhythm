@@ -41,15 +41,16 @@ html, body {
 
 /* TERMINAL UI: bottom half */
 .terminal-ui {
-  padding: 20px;
+  padding: 40px 20px 24px;  /* 🔼 more top padding */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* 👈 changed from flex-end */
+  justify-content: flex-start;
   align-items: center;
-  gap: 14px;
+  gap: 18px;
   height: 45%;
-  margin-top: 12px; /* 👈 adds space between video and text */
+  margin-top: 24px; /* 🔼 more space between video and terminal section */
 }
+
 
 
 /* Prompt text */
