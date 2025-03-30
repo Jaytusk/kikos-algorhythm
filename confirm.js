@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function typeWriter(text, el, speed = 50) {
+function typeWriter(text, el, speed = 20) {
   let i = 0;
   el.textContent = "";
   function typing() {
