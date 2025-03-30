@@ -18,6 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+enterBtn.addEventListener("click", () => {
+    window.location.href = "https://www.ticketmelon.com/kikos/algorhythm";
+  });
+});
+
 // ✅ Fully working dynamic typewriter
 function typeWriter(text, el, speed = 50) {
   let i = 0;
