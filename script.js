@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const continueBtn = document.getElementById("continue-btn");
   const nicknameInput = document.getElementById("nickname");
 
+  // Show typewriter prompt after 3 seconds
   setTimeout(() => {
-    terminalText.classList.remove("hidden");
-    typeWriter("Terminal: what should I call you?", "terminal-text", () => {
+    typeWriter("Terminal: what should I call you?", terminalText, () => {
       inputArea.classList.remove("hidden");
       continueBtn.classList.remove("hidden");
     });
@@ -19,29 +19,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("entry-screen").classList.add("hidden");
     document.getElementById("second-screen").classList.remove("hidden");
 
-    const message = `${nickname} promises to behave at the party`;
-    typeWriter(message, "second-text");
-
-    setTimeout(() => {
+    const secondText = document.getElementById("second-text");
+    typeWriter(`${nickname} promises to behave at the party`, secondText, () => {
       document.getElementById("enter-btn").classList.remove("hidden");
-    }, 3000);
+    });
   });
 });
 
-const introVideo = document.getElementById("intro-video");
-
-introVideo.addEventListener("ended", () => {
-  introVideo.currentTime = 0;
-  introVideo.play();
-});
-
-function typeWriter(text, elementId, callback) {
-  const el = document.getElementById(elementId);
-  el.textContent = ""; // Clear content before writing
+function typeWriter(text, element, callback) {
+  element.classList.remove("hidden");
+  element.textContent = "";
   let i = 0;
   const interval = setInterval(() => {
     if (i < text.length) {
-      el.textContent += text.charAt(i);
+      element.textContent += text.charAt(i);
       i++;
     } else {
       clearInterval(interval);
@@ -49,3 +40,4 @@ function typeWriter(text, elementId, callback) {
     }
   }, 50);
 }
+
