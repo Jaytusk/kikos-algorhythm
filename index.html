@@ -2,36 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Party Terminal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to the Terminal</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="no-scroll">
 
-  <div id="entry-screen">
-    <!-- 🎥 Top Half: Video -->
-    <video id="intro-video" autoplay muted loop playsinline>
+  <div class="screen" id="entry-screen">
+    <video id="introVideo" autoplay muted playsinline>
       <source src="assets/intro.mp4" type="video/mp4" />
     </video>
 
-    <!-- 💬 Bottom Half: Terminal Text + Input + Button -->
-    <div id="bottom-section">
-      <div id="terminal-text" class="hidden"></div>
+    <div id="promptArea" class="hidden">
+      <p class="typewriter" id="typewriterText"></p>
 
-      <div id="input-area" class="hidden">
-        <input type="text" id="nickname" placeholder="Enter your nickname" />
-        <button id="continue-btn">Continue</button>
+      <div class="inputGroup">
+        <input type="text" id="nicknameInput" placeholder="your name..." />
+        <button id="nextBtn">&#10148;</button>
       </div>
     </div>
-  </div>
-
-  <!-- 🔒 Second screen -->
-  <div id="second-screen" class="hidden">
-    <div id="second-text"></div>
-    <button id="enter-btn" class="hidden">Enter</button>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
