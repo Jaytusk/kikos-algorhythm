@@ -144,19 +144,26 @@ button {
   cursor: pointer;
 
   text-transform: uppercase;
+  text-align: center;
 
-  /* ✨ Glow effect */
-  text-shadow: 0 0 5px #e9b72d, 0 0 10px #e9b72d;
+  /* ✅ GLOW */
+  text-shadow:
+    0 0 4px #e9b72d,
+    0 0 8px #e9b72d,
+    0 0 12px #e9b72d;
 
-  /* 👁️‍🗨️ Blink effect */
+  /* ✅ BLINKING EFFECT */
   animation: blink-glow 1s infinite;
 }
 
-/* 🔁 Blinking + glowing animation */
+/* ✅ Animation keyframes */
 @keyframes blink-glow {
   0%, 100% {
     opacity: 1;
-    text-shadow: 0 0 5px #e9b72d, 0 0 10px #e9b72d;
+    text-shadow:
+      0 0 4px #e9b72d,
+      0 0 8px #e9b72d,
+      0 0 12px #e9b72d;
   }
   50% {
     opacity: 0.3;
@@ -167,7 +174,10 @@ button {
 
 
 
+
 .hidden {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
 }
 
