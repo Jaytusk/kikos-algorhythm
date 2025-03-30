@@ -5,12 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const nickname = localStorage.getItem("nickname") || "Guest";
   const message = `${nickname} promises to behave at the party`;
 
-  typeWriter(message, confirmText, 30);
+  typeWriter(message, confirmText, 60);
 
   // Show ENTER button after animation
-  setTimeout(() => {
-    enterBtn.classList.remove("hidden");
-  }, message.length * 30 + 500);
+ setTimeout(() => {
+  enterBtn.classList.remove("hidden");
+}, 4000); 
 
   // ✅ Redirect on click
   enterBtn.addEventListener("click", () => {
