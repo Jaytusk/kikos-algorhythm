@@ -28,6 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+const introVideo = document.getElementById("intro-video");
+
+introVideo.addEventListener("ended", () => {
+  introVideo.currentTime = 0;
+  introVideo.play();
+});
+
 function typeWriter(text, elementId, callback) {
   const el = document.getElementById(elementId);
   el.textContent = ""; // Clear content before writing
