@@ -1,7 +1,7 @@
 /* RESET & BASE */
 * {
-  margin: 12;
-  padding: 12;
+padding: 5vh 4vw;
+margin-top: 5vh;
   box-sizing: border-box;
 }
 
