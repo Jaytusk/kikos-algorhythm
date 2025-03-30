@@ -110,3 +110,10 @@ body, html {
   cursor: pointer;
 }
 
+html, body {
+  overflow: hidden; /* 🚫 Prevent scrolling */
+  touch-action: none; /* 🛑 Stops touch scrolling on mobile */
+  scrollbar-width: none;
+}
+
+
