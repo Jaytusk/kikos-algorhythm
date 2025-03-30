@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ✅ HARD delay — does not wait for video
   setTimeout(() => {
     promptArea.classList.remove("hidden");
-    typeWriter("Terminal: what should I call you?", typewriterText, 40);
+    typeWriter("TERMINAL: WHAT IS YOUR NAME?", typewriterText, 40);
   }, 3000);
 
   nextBtn.addEventListener("click", () => {
