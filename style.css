@@ -42,7 +42,9 @@ video {
   margin-top: 2rem;
   text-align: center;
   color: #e9b72d;
+  min-height: 60px; /* Reserve space so text appearing doesn't shift layout */
 }
+
 
 .typewriter {
   font-size: 1.1rem;
