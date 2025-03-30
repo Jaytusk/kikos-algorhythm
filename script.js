@@ -1,16 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const typewriterText = document.getElementById("typewriterText");
   const promptArea = document.getElementById("promptArea");
   const nextBtn = document.getElementById("nextBtn");
   const nicknameInput = document.getElementById("nicknameInput");
+  const typewriterText = document.getElementById("typewriterText");
 
-  // Show prompt after 3s
+  // ✅ Start prompt after 3s
   setTimeout(() => {
     promptArea.classList.remove("hidden");
-    typewriterText.textContent = "Terminal: what should I call you?";
+    runTypewriter("Terminal: what should I call you?", typewriterText);
   }, 3000);
 
-  // Handle continue
   nextBtn.addEventListener("click", () => {
     const name = nicknameInput.value.trim();
     if (!name) return;
@@ -18,3 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "confirm.html";
   });
 });
+
+// ✅ JS-based typewriter (100% reliable)
+function runTypewriter(text, element, speed = 50) {
+  element.textContent = "";
+  let i = 0;
+  const interval = setInterval(() => {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+    } else {
+      clearInterval(interval);
+    }
+  }, speed);
+}
