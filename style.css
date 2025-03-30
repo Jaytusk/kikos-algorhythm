@@ -1,70 +1,67 @@
-/* 🔄 Reset */
+/* Reset and base layout */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* 🔐 Full-screen lock, no scroll */
 html, body {
-  width: 100vw;
   height: 100dvh;
-  overflow: hidden !important;
-  background: black;
+  width: 100vw;
+  background-color: black;
   color: white;
   font-family: 'IBM Plex Mono', monospace;
-  position: fixed;
+  overflow: hidden;
   touch-action: none;
   overscroll-behavior: none;
+  display: flex;
+  flex-direction: column;
 }
 
-/* 🎬 Entry screen layout */
+/* === ENTRY SCREEN (VERTICAL SPLIT) === */
 #entry-screen {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === VIDEO SECTION === */
+#video-wrapper {
+  flex: 1;
+  min-height: 50vh;
+  max-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
 
-/* 🎥 Video takes full screen */
 #intro-video {
   width: 100%;
-  height: calc(100% - 24px); /* 👈 Reduce video height slightly */
+  height: 100%;
   object-fit: cover;
-  position: absolute;
-  top: 24px; /* 👈 Push it down from the top */
-  left: 0;
-  z-index: 1;
+  display: block;
 }
 
-
-
-/* 🧠 UI container fixed to bottom */
+/* === TERMINAL UI SECTION === */
 #bottom-ui {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px 16px 24px; /* top, sides, bottom */
-  margin-top: 16px;        /* 👈 Space between video & UI */
-  z-index: 2;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 60%, rgba(0,0,0,0));
+  padding: 20px 16px 24px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 60%, rgba(0, 0, 0, 0));
 }
 
-
-
-/* Terminal text */
+/* Terminal prompt */
 #terminal-text {
   font-size: 1.4rem;
   text-align: center;
   line-height: 1.4;
 }
 
-/* Input + Button */
+/* Input and button layout */
 #input-area {
   display: flex;
   gap: 10px;
@@ -95,7 +92,7 @@ html, body {
   white-space: nowrap;
 }
 
-/* Second screen */
+/* === Second screen === */
 #second-screen {
   background-color: black;
   width: 100vw;
