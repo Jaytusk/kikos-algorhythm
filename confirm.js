@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const enterBtn = document.getElementById("enterBtn");
 
   const nickname = localStorage.getItem("nickname") || "Guest";
-  const message = `${nickname} promises to behave at the party`;
+  const message = `${nickname} IS TIRED OF THE SYSTEM ;(`;
 
   typeWriter(message, confirmText, 60);
 
