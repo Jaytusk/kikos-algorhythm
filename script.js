@@ -4,11 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const continueBtn = document.getElementById("continue-btn");
   const nicknameInput = document.getElementById("nickname");
 
-  // Show typewriter prompt after 3 seconds
+  // Show prompt after delay
   setTimeout(() => {
     typeWriter("Terminal: what should I call you?", terminalText, () => {
       inputArea.classList.remove("hidden");
-      continueBtn.classList.remove("hidden");
     });
   }, 3000);
 
@@ -40,4 +39,3 @@ function typeWriter(text, element, callback) {
     }
   }, 50);
 }
-
