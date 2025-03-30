@@ -1,10 +1,11 @@
-/* Reset */
+/* 🔄 Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* 🔐 Full-screen lock, no scroll */
 html, body {
   width: 100vw;
   height: 100dvh;
@@ -12,76 +13,88 @@ html, body {
   background: black;
   color: white;
   font-family: 'IBM Plex Mono', monospace;
+  position: fixed;
   touch-action: none;
   overscroll-behavior: none;
-  position: fixed;
 }
 
-/* MAIN SCREEN */
+/* 🎬 Entry screen layout */
 #entry-screen {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
-/* TOP VIDEO HALF */
+/* 🎥 Video takes full screen */
 #intro-video {
   width: 100%;
-  height: 50vh;
+  height: 100%;
   object-fit: cover;
-  background: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
-/* BOTTOM TEXT/INPUT HALF */
-#bottom-section {
-  height: 50vh;
+/* 🧠 UI container fixed to bottom */
+#bottom-ui {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 16px;
+  z-index: 2;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 60%, rgba(0,0,0,0)); /* subtle fade */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 20px;
-  text-align: center;
-  padding: 0 20px;
+  gap: 16px;
 }
 
+/* Terminal text */
 #terminal-text {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  text-align: center;
   line-height: 1.4;
 }
 
+/* Input + Button */
 #input-area {
   display: flex;
   gap: 10px;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 #nickname {
+  flex: 1;
   padding: 10px;
   font-size: 1rem;
-  width: 200px;
-  max-width: 60vw;
-  text-align: center;
-  background-color: black;
+  background: black;
   color: white;
   border: 1px solid white;
+  text-align: center;
+  max-width: 70vw;
 }
 
 #continue-btn {
   padding: 10px 16px;
   font-size: 1rem;
-  background-color: black;
+  background: black;
   color: white;
   border: 1px solid white;
   cursor: pointer;
+  white-space: nowrap;
 }
 
-/* SECOND SCREEN */
+/* Second screen */
 #second-screen {
-  height: 100dvh;
+  background-color: black;
   width: 100vw;
-  background: black;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
