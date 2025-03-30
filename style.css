@@ -44,11 +44,13 @@ html, body {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start; /* 👈 changed from flex-end */
   align-items: center;
   gap: 14px;
   height: 45%;
+  margin-top: 12px; /* 👈 adds space between video and text */
 }
+
 
 /* Prompt text */
 #terminal-text {
