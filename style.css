@@ -22,10 +22,10 @@ body, html {
   width: 100vw;
   max-width: 840px;
   height: auto;
-  object-fit: contain;
+  object-fit: fill;
   position: relative;
   z-index: 1;
-  border: 2px solid white;
+  border: 0px solid white;
   margin-top: 60px;
 }
 
