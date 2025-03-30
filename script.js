@@ -1,29 +1,44 @@
-const typewriterText = document.getElementById('typewriterText');
-const terminalPrompt = document.getElementById('terminalPrompt');
-const continueBtn = document.getElementById('continueBtn');
+document.addEventListener("DOMContentLoaded", () => {
+  const terminalText = document.getElementById("terminal-text");
+  const inputArea = document.getElementById("input-area");
+  const continueBtn = document.getElementById("continue-btn");
+  const nicknameInput = document.getElementById("nickname");
 
-function typeWriter(text, element, delay = 50) {
-  let i = 0;
-  function typing() {
-    if (i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
-      setTimeout(typing, delay);
-    }
-  }
-  typing();
-}
+  setTimeout(() => {
+    terminalText.classList.remove("hidden");
+    typeWriter("Terminal: what should I call you?", "terminal-text", () => {
+      inputArea.classList.remove("hidden");
+      continueBtn.classList.remove("hidden");
+    });
+  }, 3000);
 
-setTimeout(() => {
-  terminalPrompt.classList.remove('hidden');
-  typeWriter("Terminal: What should I call you?", typewriterText);
-}, 3000);
+  continueBtn.addEventListener("click", () => {
+    const nickname = nicknameInput.value.trim();
+    if (!nickname) return;
 
-continueBtn.addEventListener('click', () => {
-  const name = document.getElementById('nameInput').value.trim();
-  if (name) {
-    localStorage.setItem('guestName', name);
-    window.location.href = "black.html";
-  }
+    document.getElementById("entry-screen").classList.add("hidden");
+    document.getElementById("second-screen").classList.remove("hidden");
+
+    const message = `${nickname} promises to behave at the party`;
+    typeWriter(message, "second-text");
+
+    setTimeout(() => {
+      document.getElementById("enter-btn").classList.remove("hidden");
+    }, 3000);
+  });
 });
 
+function typeWriter(text, elementId, callback) {
+  const el = document.getElementById(elementId);
+  el.textContent = ""; // Clear content before writing
+  let i = 0;
+  const interval = setInterval(() => {
+    if (i < text.length) {
+      el.textContent += text.charAt(i);
+      i++;
+    } else {
+      clearInterval(interval);
+      if (callback) callback();
+    }
+  }, 50);
+}
