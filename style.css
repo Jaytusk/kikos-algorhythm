@@ -90,36 +90,37 @@ button {
 }
 /* Confirmation screen layout */
 .confirm-screen {
-  padding: 1rem 1.5rem; /* left/right padding added */
+  padding: 1rem 1.25rem; /* tighter horizontal padding */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   height: 100vh;
   position: relative;
+  margin-top: 4vh; /* move whole block up */
 }
 
-/* Logo stays at top */
 .logo {
   width: 120px;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Promise text centered vertically */
 #confirmText {
   font-size: 1.2rem;
   text-align: center;
-  margin: auto 0; /* ⬅️ vertically center text */
-  padding: 0 1rem; /* ⬅️ prevent edge overflow */
-  max-width: 100%;
+  padding: 0 1rem;
   line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  margin-bottom: 1.5rem; /* reduce space before button */
 }
 
-/* Space out the enter button */
 #enterBtn {
-  margin-top: 2.5rem;
+  margin-top: 0.5rem; /* tighter gap below promise */
 }
+
 
 
 .hidden {
