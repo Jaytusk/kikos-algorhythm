@@ -8,23 +8,25 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+
   <div id="entry-screen">
-    <video id="intro-video" autoplay muted playsinline>
+    <!-- 🎥 Top Half: Video -->
+    <video id="intro-video" autoplay muted loop playsinline>
       <source src="assets/intro.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
     </video>
 
-    <div id="overlay">
+    <!-- 💬 Bottom Half: Terminal Text + Input + Button -->
+    <div id="bottom-section">
       <div id="terminal-text" class="hidden"></div>
 
       <div id="input-area" class="hidden">
         <input type="text" id="nickname" placeholder="Enter your nickname" />
+        <button id="continue-btn">Continue</button>
       </div>
     </div>
-
-    <button id="continue-btn" class="hidden">Continue</button>
   </div>
 
+  <!-- 🔒 Second screen -->
   <div id="second-screen" class="hidden">
     <div id="second-text"></div>
     <button id="enter-btn" class="hidden">Enter</button>
@@ -34,6 +36,3 @@
 </body>
 </html>
 
-  <script src="script.js"></script>
-</body>
-</html>
