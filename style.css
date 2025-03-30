@@ -52,11 +52,9 @@ video {
   font-size: 1.1rem;
   white-space: nowrap;
   overflow: hidden;
-  border-right: none;
-  width: 0;
-  animation: typing 2s steps(30, end) forwards;
-  color: white !important;
+  color: white;
 }
+
 
 @keyframes typing {
   from { width: 0; }
