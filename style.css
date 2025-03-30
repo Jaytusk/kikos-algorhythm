@@ -106,9 +106,13 @@ button {
 
 
 #confirmText {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem; /* 👈 more space before button */
   font-size: 1.2rem;
   text-align: center;
+}
+
+#enterBtn {
+  margin-top: 1rem;
 }
 
 .hidden {
