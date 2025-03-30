@@ -19,8 +19,8 @@ body, html {
 }
 
 #intro-video {
-  width: 80vw;
-  max-width: 640px;
+  width: 100vw;
+  max-width: 840px;
   height: auto;
   object-fit: contain;
   position: relative;
