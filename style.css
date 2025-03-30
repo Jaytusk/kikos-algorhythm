@@ -86,6 +86,23 @@ button {
   cursor: pointer;
   font-family: 'IBM Plex Mono', monospace;
 }
+/* Logo */
+.logo {
+  width: 120px;
+  margin-bottom: 2rem;
+}
+
+/* Adjust confirmation screen layout */
+.confirm-screen {
+  padding-top: 3rem;
+  gap: 1.5rem;
+}
+
+#confirmText {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
 
 .hidden {
   display: none;
