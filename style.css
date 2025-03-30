@@ -36,6 +36,7 @@ html, body {
   height: 100%;
   object-fit: cover;
   display: block;
+  padding: 12px 0; /* ⬇️ Add vertical spacing */
 }
 
 /* TERMINAL UI: bottom half */
