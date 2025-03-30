@@ -1,4 +1,4 @@
-/* RESET */
+/* RESET + BASE */
 * {
   margin: 0;
   padding: 0;
@@ -8,105 +8,102 @@
 html, body {
   height: 100dvh;
   width: 100vw;
-  overflow: hidden;
   background: black;
-  font-family: 'IBM Plex Mono', monospace;
   color: white;
-  touch-action: none;
-  overscroll-behavior: none;
+  font-family: 'IBM Plex Mono', monospace;
+  overflow: hidden;
+  position: relative;
 }
 
-/* === ENTRY SCREEN === */
+/* ENTRY SCREEN */
 #entry-screen {
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* === VIDEO WRAPPER === */
-.video-container {
-  height: 55vh; /* control space with vh */
-  padding-top: 20px; /* ✅ adds top spacing! */
-  padding-bottom: 20px; /* ✅ adds bottom spacing! */
+  position: relative;
   overflow: hidden;
 }
 
+/* FULLSCREEN VIDEO */
 #intro-video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  z-index: 1;
 }
 
-/* === TERMINAL UI === */
-.terminal-ui {
+/* TERMINAL UI OVERLAY (BOTTOM) */
+#terminal-ui {
   position: absolute;
   bottom: 0;
-  left: 0;
   width: 100%;
-  padding: 24px 20px 32px; /* top right/left bottom */
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0));
+  padding: 40px 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.2));
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  z-index: 2;
+  gap: 16px;
 }
 
-
-/* Prompt */
+/* PROMPT TEXT */
 #terminal-text {
   font-size: 1.4rem;
   text-align: center;
-  line-height: 1.4;
 }
 
-/* Input + button */
+/* INPUT + CONTINUE */
 #input-area {
   display: flex;
   gap: 10px;
-  width: 100%;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
 #nickname {
-  flex: 1;
-  max-width: 65vw;
   padding: 10px;
   font-size: 1rem;
-  background-color: black;
-  color: white;
+  width: 60vw;
+  max-width: 260px;
   border: 1px solid white;
+  background: black;
+  color: white;
   text-align: center;
 }
 
 #continue-btn {
   padding: 10px 16px;
   font-size: 1rem;
-  background-color: black;
+  background: black;
   color: white;
   border: 1px solid white;
   cursor: pointer;
+  white-space: nowrap;
 }
 
-/* === SECOND SCREEN === */
+/* SECOND SCREEN */
 #second-screen {
-  background-color: black;
-  height: 100dvh;
-  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: black;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 30px;
   text-align: center;
-  padding: 0 20px;
-  gap: 24px;
+  z-index: 3;
 }
 
 #second-text {
   font-size: 1.5rem;
-  line-height: 1.4;
+  max-width: 80%;
+  line-height: 1.5;
 }
 
 #enter-btn {
@@ -118,7 +115,7 @@ html, body {
   cursor: pointer;
 }
 
+/* HIDE ELEMENTS INITIALLY */
 .hidden {
   display: none;
 }
-
