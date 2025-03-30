@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 3000);
 
   nextBtn.addEventListener("click", () => {
-    const name = nicknameInput.value.trim();
+    const name = nicknameInput.value.trim().toUpperCase();
     if (!name) return;
     localStorage.setItem("nickname", name);
     window.location.href = "confirm.html";
