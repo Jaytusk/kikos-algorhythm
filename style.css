@@ -12,75 +12,75 @@ html, body {
   color: white;
   font-family: 'IBM Plex Mono', monospace;
   overflow: hidden;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* ENTRY SCREEN */
+/* ENTRY SCREEN LAYOUT */
 #entry-screen {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-/* FULLSCREEN VIDEO */
-#intro-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-/* TERMINAL UI OVERLAY (BOTTOM) */
-#terminal-ui {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 40px 20px;
-  background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.2));
-  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 40px;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
 }
 
-/* PROMPT TEXT */
+/* VIDEO container */
+.video-container {
+  width: 100%;
+  border: 2px solid white;
+  overflow: hidden;
+}
+
+#intro-video {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* TERMINAL UI */
+.terminal-ui {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+}
+
 #terminal-text {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   text-align: center;
+  white-space: pre-wrap;
 }
 
-/* INPUT + CONTINUE */
 #input-area {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
+  width: 100%;
   justify-content: center;
 }
 
 #nickname {
+  flex: 1;
   padding: 10px;
   font-size: 1rem;
-  width: 60vw;
-  max-width: 260px;
-  border: 1px solid white;
-  background: black;
+  background-color: black;
   color: white;
+  border: 1px solid white;
   text-align: center;
 }
 
 #continue-btn {
   padding: 10px 16px;
   font-size: 1rem;
-  background: black;
+  background-color: black;
   color: white;
   border: 1px solid white;
   cursor: pointer;
-  white-space: nowrap;
 }
 
 /* SECOND SCREEN */
@@ -89,21 +89,19 @@ html, body {
   top: 0;
   left: 0;
   background: black;
-  height: 100%;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
   text-align: center;
-  z-index: 3;
+  padding: 20px;
+  gap: 24px;
 }
 
 #second-text {
   font-size: 1.5rem;
-  max-width: 80%;
-  line-height: 1.5;
 }
 
 #enter-btn {
@@ -115,7 +113,7 @@ html, body {
   cursor: pointer;
 }
 
-/* HIDE ELEMENTS INITIALLY */
 .hidden {
   display: none;
 }
+
