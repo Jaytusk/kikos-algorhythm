@@ -4,10 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const nicknameInput = document.getElementById("nicknameInput");
   const typewriterText = document.getElementById("typewriterText");
 
-  // ✅ Start prompt after 3s
+  // Wait for video to load
   setTimeout(() => {
     promptArea.classList.remove("hidden");
-    runTypewriter("Terminal: what should I call you?", typewriterText);
+    typeWriter("Terminal: what should I call you?", typewriterText, 40);
   }, 3000);
 
   nextBtn.addEventListener("click", () => {
@@ -18,16 +18,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// ✅ JS-based typewriter (100% reliable)
-function runTypewriter(text, element, speed = 50) {
-  element.textContent = "";
+// ✅ Fully working dynamic typewriter
+function typeWriter(text, el, speed = 50) {
   let i = 0;
-  const interval = setInterval(() => {
+  el.textContent = "";
+
+  function typing() {
     if (i < text.length) {
-      element.textContent += text.charAt(i);
+      el.textContent += text.charAt(i);
       i++;
-    } else {
-      clearInterval(interval);
+      setTimeout(typing, speed);
     }
-  }, speed);
+  }
+
+  typing();
 }
