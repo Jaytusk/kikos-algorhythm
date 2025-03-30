@@ -3,12 +3,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextBtn = document.getElementById("nextBtn");
   const nicknameInput = document.getElementById("nicknameInput");
   const typewriterText = document.getElementById("typewriterText");
+  const video = document.getElementById("introVideo");
 
-  // Wait for video to load
+video.addEventListener("playing", () => {
   setTimeout(() => {
     promptArea.classList.remove("hidden");
     typeWriter("Terminal: what should I call you?", typewriterText, 40);
   }, 3000);
+});
 
   nextBtn.addEventListener("click", () => {
     const name = nicknameInput.value.trim();
