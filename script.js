@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const continueBtn = document.getElementById("continue-btn");
   const nicknameInput = document.getElementById("nickname");
 
+  // ⏳ Delay 3s then type terminal prompt
   setTimeout(() => {
     terminalText.classList.remove("hidden");
     typeWriter("Terminal: what should I call you?", "terminal-text", () => {
       inputArea.classList.remove("hidden");
-      continueBtn.classList.remove("hidden");
     });
   }, 3000);
 
@@ -28,9 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// 🎞️ Typewriter effect
 function typeWriter(text, elementId, callback) {
   const el = document.getElementById(elementId);
-  el.textContent = ""; // Clear content before writing
+  el.textContent = "";
   let i = 0;
   const interval = setInterval(() => {
     if (i < text.length) {
