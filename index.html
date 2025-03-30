@@ -8,19 +8,22 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="entry-screen">
-   <video id="intro-video" autoplay muted loop playsinline>
-  <source src="assets/intro.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<div id="entry-screen">
+  <!-- Video takes top half -->
+  <video id="intro-video" autoplay muted loop playsinline>
+    <source src="assets/intro.mp4" type="video/mp4" />
+  </video>
 
-    <div id="overlay">
-      <div id="terminal-text" class="hidden"></div>
+  <!-- This is the bottom section: Terminal + Input + Button -->
+  <div id="bottom-section">
+    <div id="terminal-text" class="hidden"></div>
 
-      <div id="input-area" class="hidden">
-        <input type="text" id="nickname" placeholder="Enter your nickname" />
-      </div>
+    <div id="input-area" class="hidden">
+      <input type="text" id="nickname" placeholder="Enter your nickname" />
+      <button id="continue-btn">Continue</button>
     </div>
+  </div>
+</div>
 
     <button id="continue-btn" class="hidden">Continue</button>
   </div>
