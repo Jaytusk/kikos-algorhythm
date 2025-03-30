@@ -134,26 +134,17 @@ button {
 
 
 
-#enterBtn {
-  font-size: 1.2rem; /* Restore full size */
-  margin-top: 2rem;  /* Give space below the promise text */
-  margin-bottom: 2rem;
 
+#enterBtn {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
   background: none;
   border: none;
   color: #e9b72d;
   font-family: 'IBM Plex Mono', monospace;
   cursor: pointer;
-  text-transform: uppercase;
-  text-align: center;
-
-  animation: blink-only 1s steps(2, start) infinite;
 }
 
-@keyframes blink-only {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
 
 .hidden {
   opacity: 0;
