@@ -133,19 +133,9 @@ button {
 }
 
 
-
-
 #enterBtn {
-  margin-bottom: 2rem;
-  margin-top: 5rem;
-  font-size: 1.2rem;
-  background: none;
-  border: none;
-  color: #e9b72d;
-  font-family: 'IBM Plex Mono', monospace;
-  cursor: pointer;
+  margin-top: 0.5rem
 }
-
 
 .hidden {
   opacity: 0;
