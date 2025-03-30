@@ -135,42 +135,25 @@ button {
 
 
 #enterBtn {
+  font-size: 1.2rem; /* Restore full size */
+  margin-top: 2rem;  /* Give space below the promise text */
   margin-bottom: 2rem;
-  font-size: 3rem;
+
   background: none;
   border: none;
   color: #e9b72d;
   font-family: 'IBM Plex Mono', monospace;
   cursor: pointer;
-
   text-transform: uppercase;
   text-align: center;
 
-  /* ✅ GLOW */
-  text-shadow:
-    0 0 4px #e9b72d,
-    0 0 8px #e9b72d,
-    0 0 12px #e9b72d;
-
-  /* ✅ BLINKING EFFECT */
-  animation: blink-glow 1s infinite;
+  animation: blink-only 1s steps(2, start) infinite;
 }
 
-/* ✅ Animation keyframes */
-@keyframes blink-glow {
-  0%, 100% {
-    opacity: 1;
-    text-shadow:
-      0 0 4px #e9b72d,
-      0 0 8px #e9b72d,
-      0 0 12px #e9b72d;
-  }
-  50% {
-    opacity: 0.3;
-    text-shadow: none;
-  }
+@keyframes blink-only {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
-
 
 
 
