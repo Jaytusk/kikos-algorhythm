@@ -41,15 +41,19 @@ html, body {
 
 /* === TERMINAL UI === */
 .terminal-ui {
-  height: 45vh;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 20px 32px; /* top right/left bottom */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0));
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   gap: 20px;
-  padding: 30px 20px;
-  background: black;
+  z-index: 2;
 }
+
 
 /* Prompt */
 #terminal-text {
