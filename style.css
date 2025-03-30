@@ -9,6 +9,9 @@ body, html {
   color: white;
   height: 100%;
   font-family: 'IBM Plex Mono', monospace;
+  overflow: hidden; /* 🚫 Prevent scrolling */
+  touch-action: none; /* 🛑 Stops touch scrolling on mobile */
+  scrollbar-width: none;
 }
 
 #entry-screen {
@@ -108,11 +111,4 @@ body, html {
   border: 1px solid white;
   cursor: pointer;
 }
-
-html, body {
-  overflow: hidden; /* 🚫 Prevent scrolling */
-  touch-action: none; /* 🛑 Stops touch scrolling on mobile */
-  scrollbar-width: none;
-}
-
 
