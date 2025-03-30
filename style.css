@@ -155,6 +155,13 @@ button {
   50% { opacity: 0.3; }
 }
 
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+
 
 
 .hidden {
