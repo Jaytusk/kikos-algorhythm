@@ -9,14 +9,15 @@
 </head>
 <body>
 
-  <!-- MAIN SCREEN -->
   <div id="entry-screen">
-    <video id="intro-video" autoplay muted loop playsinline>
-      <source src="assets/intro.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    <div class="video-container">
+      <video id="intro-video" autoplay muted loop playsinline>
+        <source src="assets/intro.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
-    <div id="terminal-ui">
+    <div class="terminal-ui">
       <div id="terminal-text" class="hidden"></div>
 
       <div id="input-area" class="hidden">
@@ -26,7 +27,6 @@
     </div>
   </div>
 
-  <!-- SECOND SCREEN -->
   <div id="second-screen" class="hidden">
     <div id="second-text"></div>
     <button id="enter-btn" class="hidden">Enter</button>
