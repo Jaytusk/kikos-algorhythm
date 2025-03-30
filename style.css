@@ -134,7 +134,20 @@ button {
 
 
 #enterBtn {
-  margin-top: 0.5rem
+  margin-top: 0.5rem;
+  animation: blink-glow 1.25s infinite;
+  text-shadow: 0 0 6px #e9b72d;
+}
+
+@keyframes blink-glow {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 6px #e9b72d;
+  }
+  50% {
+    opacity: 0.4;
+    text-shadow: 0 0 1px #e9b72d;
+  }
 }
 
 .hidden {
