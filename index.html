@@ -2,25 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Party Terminal</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- ENTRY SCREEN -->
+  <!-- MAIN SCREEN -->
   <div id="entry-screen">
-    <!-- Top: Video -->
-    <div class="video-container">
-      <video id="intro-video" autoplay muted loop playsinline>
-        <source src="assets/intro.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
+    <video id="intro-video" autoplay muted loop playsinline>
+      <source src="assets/intro.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
 
-    <!-- Bottom: Terminal UI -->
-    <div class="terminal-ui">
+    <div id="terminal-ui">
       <div id="terminal-text" class="hidden"></div>
 
       <div id="input-area" class="hidden">
