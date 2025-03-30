@@ -47,13 +47,13 @@ video {
   color: white;
 }
 
-/* Typewriter text */
 .typewriter {
   font-size: 1.1rem;
   white-space: nowrap;
   overflow: hidden;
   color: white;
 }
+
 
 
 @keyframes typing {
