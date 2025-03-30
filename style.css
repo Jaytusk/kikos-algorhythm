@@ -9,8 +9,7 @@ html, body {
   color: white;
   height: 100dvh; /* ✅ Modern viewport-safe height */
   width: 100vw;
-  overflow: hidden;          /* ✅ Hide all scroll */
-  touch-action: none;        /* 📴 Prevents mobile scroll */
+  overflow: hidden;          /* ✅ Hide all scroll */      /* 📴 Prevents mobile scroll */
   overscroll-behavior: none; /* 🛑 No bounce-back */
   font-family: 'IBM Plex Mono', monospace;
   position: relative;
