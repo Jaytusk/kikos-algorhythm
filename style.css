@@ -88,32 +88,39 @@ button {
   cursor: pointer;
   font-family: 'IBM Plex Mono', monospace;
 }
+/* Confirmation screen layout */
 .confirm-screen {
-  padding-top: 1rem;
+  padding: 1rem 1.5rem; /* left/right padding added */
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   height: 100vh;
-  justify-content: flex-start; /* 👈 anchor logo at the top */
-  gap: 2rem;
+  position: relative;
 }
 
+/* Logo stays at top */
 .logo {
   width: 120px;
-  margin-top: 1rem;  /* 👈 top space */
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
-
+/* Promise text centered vertically */
 #confirmText {
-  margin-bottom: 2.5rem; /* 👈 more space before button */
   font-size: 1.2rem;
   text-align: center;
+  margin: auto 0; /* ⬅️ vertically center text */
+  padding: 0 1rem; /* ⬅️ prevent edge overflow */
+  max-width: 100%;
+  line-height: 1.6;
 }
 
+/* Space out the enter button */
 #enterBtn {
-  margin-top: 1rem;
+  margin-top: 2.5rem;
 }
+
 
 .hidden {
   display: none;
