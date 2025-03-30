@@ -1,7 +1,7 @@
-/* RESET & BASE */
+/* RESET */
 * {
-padding: 5vh 4vw;
-margin-top: 5vh;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -16,7 +16,7 @@ html, body {
   overscroll-behavior: none;
 }
 
-/* ENTRY SCREEN: split vertically */
+/* === ENTRY SCREEN === */
 #entry-screen {
   height: 100%;
   width: 100%;
@@ -24,10 +24,11 @@ html, body {
   flex-direction: column;
 }
 
-/* VIDEO container: top half */
+/* === VIDEO WRAPPER === */
 .video-container {
-  flex: 1;
-  max-height: 55%;
+  height: 55vh; /* control space with vh */
+  padding-top: 20px; /* ✅ adds top spacing! */
+  padding-bottom: 20px; /* ✅ adds bottom spacing! */
   overflow: hidden;
 }
 
@@ -36,31 +37,28 @@ html, body {
   height: 100%;
   object-fit: cover;
   display: block;
-  padding: 12px 0; /* ⬇️ Add vertical spacing */
 }
 
-/* TERMINAL UI: bottom half */
+/* === TERMINAL UI === */
 .terminal-ui {
-  padding: 40px 20px 24px;  /* 🔼 more top padding */
+  height: 45vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 18px;
-  height: 45%;
-  margin-top: 24px; /* 🔼 more space between video and terminal section */
+  gap: 20px;
+  padding: 30px 20px;
+  background: black;
 }
 
-
-
-/* Prompt text */
+/* Prompt */
 #terminal-text {
   font-size: 1.4rem;
   text-align: center;
   line-height: 1.4;
 }
 
-/* Input and button side by side */
+/* Input + button */
 #input-area {
   display: flex;
   gap: 10px;
@@ -86,10 +84,9 @@ html, body {
   color: white;
   border: 1px solid white;
   cursor: pointer;
-  white-space: nowrap;
 }
 
-/* SECOND SCREEN */
+/* === SECOND SCREEN === */
 #second-screen {
   background-color: black;
   height: 100dvh;
@@ -98,8 +95,8 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
   text-align: center;
+  padding: 0 20px;
   gap: 24px;
 }
 
@@ -117,7 +114,7 @@ html, body {
   cursor: pointer;
 }
 
-/* Hidden class */
 .hidden {
   display: none;
 }
+
