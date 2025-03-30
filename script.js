@@ -1,41 +1,29 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const terminalText = document.getElementById("terminal-text");
-  const inputArea = document.getElementById("input-area");
-  const continueBtn = document.getElementById("continue-btn");
-  const nicknameInput = document.getElementById("nickname");
+const typewriterText = document.getElementById('typewriterText');
+const terminalPrompt = document.getElementById('terminalPrompt');
+const continueBtn = document.getElementById('continueBtn');
 
-  // Show prompt after delay
-  setTimeout(() => {
-    typeWriter("Terminal: what should I call you?", terminalText, () => {
-      inputArea.classList.remove("hidden");
-    });
-  }, 3000);
-
-  continueBtn.addEventListener("click", () => {
-    const nickname = nicknameInput.value.trim();
-    if (!nickname) return;
-
-    document.getElementById("entry-screen").classList.add("hidden");
-    document.getElementById("second-screen").classList.remove("hidden");
-
-    const secondText = document.getElementById("second-text");
-    typeWriter(`${nickname} promises to behave at the party`, secondText, () => {
-      document.getElementById("enter-btn").classList.remove("hidden");
-    });
-  });
-});
-
-function typeWriter(text, element, callback) {
-  element.classList.remove("hidden");
-  element.textContent = "";
+function typeWriter(text, element, delay = 50) {
   let i = 0;
-  const interval = setInterval(() => {
+  function typing() {
     if (i < text.length) {
       element.textContent += text.charAt(i);
       i++;
-    } else {
-      clearInterval(interval);
-      if (callback) callback();
+      setTimeout(typing, delay);
     }
-  }, 50);
+  }
+  typing();
 }
+
+setTimeout(() => {
+  terminalPrompt.classList.remove('hidden');
+  typeWriter("Terminal: What should I call you?", typewriterText);
+}, 3000);
+
+continueBtn.addEventListener('click', () => {
+  const name = document.getElementById('nameInput').value.trim();
+  if (name) {
+    localStorage.setItem('guestName', name);
+    window.location.href = "black.html";
+  }
+});
+
