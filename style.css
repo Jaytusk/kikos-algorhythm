@@ -9,7 +9,7 @@ html, body {
   width: 100%;
   height: 100%;
   background: black;
-  color: #e9b72d;
+  color: #D60D3A;
   font-family: 'IBM Plex Mono', monospace;
   overflow: hidden;
 }
@@ -41,7 +41,7 @@ video {
 #promptArea {
   margin-top: 2rem;
   text-align: center;
-  color: #e9b72d;
+  color: #D60D3A;
   min-height: 60px; /* Reserve space so text appearing doesn't shift layout */
 }
 
@@ -50,7 +50,7 @@ video {
   font-size: 1.1rem;
   white-space: nowrap;
   overflow: hidden;
-  color: #e9b72d !important;
+  color: #D60D3A !important;
 }
 
 .inputGroup {
@@ -66,9 +66,9 @@ input {
   font-size: 1rem;
   width: 60vw;
   background: transparent;
-  color: #e9b72d;
+  color: #D60D3A;
   border: none;
-  border-bottom: 2px solid #e9b72d;
+  border-bottom: 2px solid #D60D3A;
   text-align: left;
   outline: none;
   text-transform: uppercase; /* ← THIS! */
@@ -76,7 +76,7 @@ input {
 }
 
 input::placeholder {
-  color: #e9b72d;
+  color: #D60D3A;
   opacity: 0.5;
   font-family: 'IBM Plex Mono', monospace;
 }
@@ -85,7 +85,7 @@ button {
   background: none;
   border: none;
   font-size: 1.8rem;
-  color: #e9b72d;
+  color: #D60D3A;
   cursor: pointer;
   font-family: 'IBM Plex Mono', monospace;
 }
@@ -111,7 +111,7 @@ button {
 
 #confirmText {
   font-size: 1.2rem;
-  color: #e9b72d;
+  color: #D60D3A;
   text-align: center;
 
   margin-top: 10rem;
@@ -136,17 +136,17 @@ button {
 #enterBtn {
   margin-top: 0.5rem;
   animation: blink-glow 1.25s infinite;
-  text-shadow: 0 0 6px #e9b72d;
+  text-shadow: 0 0 6px #D60D3A;
 }
 
 @keyframes blink-glow {
   0%, 100% {
     opacity: 1;
-    text-shadow: 0 0 6px #e9b72d;
+    text-shadow: 0 0 6px #D60D3A;
   }
   50% {
     opacity: 0.4;
-    text-shadow: 0 0 1px #e9b72d;
+    text-shadow: 0 0 1px #D60D3A;
   }
 }
 
