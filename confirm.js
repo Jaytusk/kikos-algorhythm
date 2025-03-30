@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Show ENTER button after animation
  setTimeout(() => {
   enterBtn.classList.remove("hidden");
-}, 3200); 
+}, 3000); 
 
   // ✅ Redirect on click
   enterBtn.addEventListener("click", () => {
