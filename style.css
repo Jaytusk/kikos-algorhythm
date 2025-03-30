@@ -71,6 +71,7 @@ input {
   border-bottom: 2px solid #e9b72d;
   text-align: left;
   outline: none;
+  text-transform: uppercase; /* ← THIS! */
   font-family: 'IBM Plex Mono', monospace;
 }
 
