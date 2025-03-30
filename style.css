@@ -1,6 +1,6 @@
 /* RESET & BASE */
 * {
-  margin: 0;
+  margin: 12;
   padding: 12;
   box-sizing: border-box;
 }
