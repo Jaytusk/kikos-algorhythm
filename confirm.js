@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const confirmText = document.getElementById("confirmText");
   const enterBtn = document.getElementById("enterBtn");
 
-  const nickname = localStorage.getItem("nickname") || "Guest";
+  const nickname = localStorage.getItem("nickname") || "USER";
   const message = `${nickname} IS STILL IN THE MATRIX`;
 
   typeWriter(message, confirmText, 60);
