@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const nickname = localStorage.getItem("nickname") || "USER";
   const message = `${nickname} IS STUCK IN THE MATRIX`;
 
-  scrambleText(message, confirmText, 30);
+  scrambleText(message, confirmText, 50);
 
   // Show ENTER button after animation
  setTimeout(() => {
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function scrambleText(text, el, interval = 50) {
+function scrambleText(text, el, interval = 70) {
   const chars = "!<>-_\\/[]{}—=+*^?#________";
   let output = "";
   let progress = 0;
