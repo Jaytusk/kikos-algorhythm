@@ -18,15 +18,34 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function typeWriter(text, el, speed = 20) {
-  let i = 0;
-  el.textContent = "";
-  function typing() {
-    if (i < text.length) {
-      el.textContent += text.charAt(i);
-      i++;
-      setTimeout(typing, speed);
-    }
+function scrambleText(text, el, interval = 50) {
+  const chars = "!<>-_\\/[]{}—=+*^?#________";
+  let output = "";
+  let progress = 0;
+
+  function randomChar() {
+    return chars[Math.floor(Math.random() * chars.length)];
   }
+
+  const scrambleInterval = setInterval(() => {
+    output = "";
+
+    for (let i = 0; i < text.length; i++) {
+      if (i < progress) {
+        output += text[i];
+      } else {
+        output += randomChar();
+      }
+    }
+
+    el.textContent = output;
+
+    if (progress >= text.length) {
+      clearInterval(scrambleInterval);
+    }
+
+    progress++;
+  }, interval);
+}
   typing();
 }
