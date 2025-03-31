@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const nickname = localStorage.getItem("nickname") || "USER";
   const message = `${nickname} IS STILL IN THE MATRIX`;
 
-  typeWriter(message, confirmText, 60);
+  scrambleText(message, confirmText, 30);
 
   // Show ENTER button after animation
  setTimeout(() => {
