@@ -47,5 +47,3 @@ function scrambleText(text, el, interval = 50) {
     progress++;
   }, interval);
 }
-  typing();
-}
