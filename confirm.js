@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const enterBtn = document.getElementById("enterBtn");
 
   const nickname = localStorage.getItem("nickname") || "USER";
-  const message = `${nickname} IS STILL IN THE MATRIX`;
+  const message = `${nickname} IS STUCK IN THE MATRIX`;
 
   scrambleText(message, confirmText, 30);
 
