@@ -137,6 +137,8 @@ button {
   margin-top: 0.5rem;
   animation: blink-glow 1.25s infinite;
   text-shadow: 0 0 6px #D60D3A;
+  text-decoration: underline; /* 👈 ADD THIS */
+
 }
 
 @keyframes blink-glow {
